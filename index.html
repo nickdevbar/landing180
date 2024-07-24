@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -34,12 +34,15 @@
                             isDeleting = false;
                             charIndex = 0;
                             textIndex = (textIndex + 1) % texts.length;
+                            dynamicText.innerHTML = '&nbsp;'; // Añadir un espacio en blanco
                         }
                         setTimeout(type, 70);
                     }
                 }
             }
 
+            // Inicializa el texto con un espacio en blanco
+            dynamicText.innerHTML = '&nbsp;';
             type();
         });
     </script>
@@ -179,9 +182,9 @@
 
     <!-- hero section -->
     <div class="2xl:p-10">
-        <div class="h-128 w-full bg-sky-950 p-7 md:p-20 py-14 first-section 2xl:rounded-lg">
-            <h1 class="inline text-6xl text-sky-500 font-bold italic">180&nbsp</h1>
-            <h1 id="dynamicText" class="inline text-6xl text-slate-50 font-bold text-start italic"></h1>
+        <div class=" w-full bg-sky-950 p-7 md:p-20 py-14 first-section 2xl:rounded-lg">
+            <h1 class="block md:inline text-6xl text-sky-500 font-bold italic">180&nbsp</h1>
+            <h1 id="dynamicText" class="block md:inline text-6xl text-slate-50 font-bold text-start italic"> </h1>
             <div class="py-5">
                 <h2 class="text-lg text-slate-200">
                     Somos un equipo de profesionales con experiencia en herramientas de marketing digital. <br> Las
@@ -248,7 +251,7 @@
                             <h2 class="card-title text-slate-200 my-2">DISEÑO</h2>
                             <p class="text-slate-300">Diseñamos interfaces y experiencias visuales que mejoran la
                                 interacción con tu marca, incluyendo UI/UX y creación de identidades corporativas que
-                                reflejan la esencia de tu negocio.</p>
+                                destacan tu marca.</p>
                             <div class="card-actions justify-end mt-3">
                                 <button class="btn btn-ghost">Saber más</button>
                             </div>
@@ -271,7 +274,7 @@
             </div>
             <div class="md:px-14 px-6 md:pb-14 pb-6">
 
-                <div class="w-full stats stats-vertical bg-base-300 lg:stats-horizontal shadow">
+                <div class="w-full stats stats-vertical bg-slate-900 lg:stats-horizontal shadow">
                     <div class="stat textLeft">
                         <div class="stat-title text-slate-600 text-lg font-bold">Publicidad</div>
                         <ul class="list-disc px-8 py-4 text-slate-400">
@@ -339,12 +342,12 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <div class="timeline-start mb-10 text-end animate__animated textLeft">
+                        <div class="timeline-start mb-10 text-end animate__animated textLeft text-slate-400">
                             <div class="text-xl text-sky-400 font-black">ORIENTAR</div>
                             <br>
-                            Nuestra misión es guiarlo hacia el éxito. Teniendo en cuenta tus necesidades, objetivos y
-                            desafíos, te brindamos recomendaciones estratégicas que le permitan alcanzar tus metas de
-                            manera eficiente. El enfoque es personalizado y basado en la comprensión de su caso.
+                            Nuestra misión es guiarte hacia el éxito. Teniendo en cuenta tus necesidades, objetivos y
+                            desafíos, te brindamos recomendaciones estratégicas que te permitan alcanzar tus metas de
+                            manera eficiente. El enfoque es personalizado y basado en la comprensión de tu caso.
                         </div>
                         <hr />
                     </li>
@@ -358,7 +361,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <div class="timeline-end mb-10 md:text-start animate__animated" id="textRight">
+                        <div class="timeline-end mb-10 md:text-start animate__animated text-slate-400" id="textRight">
                             <div class="text-xl text-sky-400 font-black">ESTRUCTURAR</div>
                             <br>
                             Trabajaremos en conjunto para establecer procesos y sistemas que le permitan optimizar las
@@ -377,7 +380,7 @@
                                     clip-rule="evenodd" />
                             </svg>
                         </div>
-                        <div class="timeline-start mb-10 text-end animate__animated textLeft">
+                        <div class="timeline-start mb-10 text-end animate__animated textLeft text-slate-400">
                             <div class="text-xl text-sky-400 font-black">POTENCIAR</div>
                             <br>
                             Te brindamos las herramientas y el apoyo necesario para que puedas alcanzar nuevas metas y
@@ -406,7 +409,7 @@
                         <h1 class="text-4xl font-bold text-sky-500">ESTAMOS ESPERANDO POR TI</h1>
                         <p class="py-6 text-xl text-slate-900 font-light">
                             Estas a un paso de crecer junto a nosotros. <br>
-                            Queremos conorte a traves <br>
+                            Queremos conocerte a traves <br>
                             del siguiente formulario.
                         </p>
                         <a href="https://forms.gle/aK8LujLtaV124g6D9" target="_blank"
@@ -430,17 +433,17 @@
             <div class="md:px-10 px-6 pb-10">
                 <div>
 
-                    <div class="mockup-browser border-base-300 border">
+                    <div class="mockup-browser border-slate-800 border">
                         <div class="mockup-browser-toolbar">
-                            <div class="input border-base-300 border italic">Studio180</div>
+                            <div class="input border-slate-800 border italic">Studio180</div>
                         </div>
-                        <div class="border-base-300 flex justify-center border-t px-4 py-10 md:gap-10 gap-10">
+                        <div class="border-slate-900 flex justify-center border-t px-4 py-4 gap-5">
 
-                            <div class="card bg-base-100 w-60 shadow-xl hover:shadow-cyan-500/50">
+                            <div class="card bg-slate-800 shadow-xl md:w-60 hover:shadow-cyan-500/50">
                                 <figure class="px-10 pt-10">
-                                    <img src="./assets/img/team/david.jpg" alt="Shoes" class="rounded-full" />
+                                    <img src="./assets/img/team/david.jpg" width="120" height="120" alt="Shoes" class="rounded-full" />
                                 </figure>
-                                <div class="card-body items-center text-center">
+                                <div class="card-body items-center text-center text-slate-400">
                                     <h2 class="card-title">David Silva</h2>
                                     <div class="divider m-0"></div>
                                     <p>Ing. Industrial</p>
@@ -449,11 +452,11 @@
                             </div>
 
 
-                            <div class="card bg-base-100 w-60 shadow-xl hover:shadow-cyan-500/50">
+                            <div class="card bg-slate-800 shadow-xl md:w-60 hover:shadow-cyan-500/50">
                                 <figure class="px-10 pt-10">
-                                    <img src="./assets/img/team/nick.jpg" alt="Shoes" class="rounded-full" />
+                                    <img src="./assets/img/team/nick.jpg"width="120" height="120"  alt="Shoes" class="rounded-full" />
                                 </figure>
-                                <div class="card-body items-center text-center">
+                                <div class="card-body items-center text-center text-slate-400">
                                     <h2 class="card-title">Nick Barrientos</h2>
                                     <div class="divider m-0"></div>
                                     <p>Tecnico En Sistemas</p>
@@ -474,7 +477,7 @@
     <div class="divider bg-slate-200 m-0 2xl:hidden" style="height: 0.25rem;"></div>
 
     <!-- footer section -->
-    <footer class="footer bg-slate-950 text-base-content p-10">
+    <footer class="footer bg-slate-950 text-slate-300 p-10">
         <aside>
             <img src="./assets/img/bannerMobile.png" width="12%" alt="">
             <p>
