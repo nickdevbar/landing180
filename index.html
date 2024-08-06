@@ -78,10 +78,21 @@
         }
     </script>
 
+    <style>
+        /* Ocultar animaciones en móviles */
+        @media (max-width: 768px) {
+            .wow {
+                visibility: visible !important;
+                animation: none !important;
+            }
+        }
+    </style>
+
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
+        // Inicializar Wow.js solo en vista de escritorio
+        if (window.innerWidth > 768) {
             new WOW().init();
-        });
+        }
     </script>
 
     <title>STUDIO⚡180</title>
@@ -718,12 +729,13 @@
                                 <div class="label">
                                     <span class="label-text">Tu Mensaje</span>
                                 </div>
-                                <textarea class="textarea textarea-bordered" placeholder="Deseo solicitar mi propuesta" id="message" name="message" rows="4" required></textarea>
+                                <textarea class="textarea textarea-bordered" placeholder="Deseo solicitar mi propuesta"
+                                    id="message" name="message" rows="4" required></textarea>
                             </div>
 
                             <div class="text-right">
-                            <button type="submit"
-                                class="btn bg-sky-400 md:w-1/2 w-full mt-3 text-slate-100">Enviar mi mensaje</button>
+                                <button type="submit" class="btn bg-sky-400 md:w-1/2 w-full mt-3 text-slate-100">Enviar
+                                    mi mensaje</button>
                             </div>
 
                         </form>
