@@ -34,3 +34,42 @@ body {
         background-image: none !important;
     }
 }
+
+/* PLANES MARKETING */
+.bannerMark {
+    background: linear-gradient(to top, #020617 5%, rgba(2, 6, 23, 0) 100%), url('https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg') no-repeat center;
+    background-size: cover;
+    height: 480px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.bannerDev {
+    background: linear-gradient(to top, #020617 5%, rgba(2, 6, 23, 0) 100%), url('https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center;
+    background-size: cover;
+    height: 480px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+@media (max-width: 640px) {
+    .bannerMark {
+        height: 220px !important;
+        border-bottom-left-radius: 0px ;
+        border-bottom-right-radius: 0px ;
+        border-top-left-radius: 0px ;
+        border-top-right-radius: 0px ;
+    }
+
+    .bannerDev {
+        height: 220px !important;
+        border-bottom-left-radius: 0px ;
+        border-bottom-right-radius: 0px ;
+        border-top-left-radius: 0px ;
+        border-top-right-radius: 0px ;
+    }
+}

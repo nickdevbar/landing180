@@ -1,0 +1,1406 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/img/icon2.ico" type="image/x-icon" />
+
+    <link rel="stylesheet" href="./main.css">
+    <link href="./assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="./assets/css/main.css" rel="stylesheet" type="text/css" />
+    <script src="./assets/js/tailwind.js"></script>
+    <script src="./assets/js/wow.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                    height: {
+                        '128': '460px', // Agrega tu nueva clase de altura personalizada aquí
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Ocultar animaciones en móviles */
+        @media (max-width: 768px) {
+            .wow {
+                visibility: visible !important;
+                animation: none !important;
+            }
+        }
+    </style>
+
+    <script>
+        // Inicializar Wow.js solo en vista de escritorio
+        if (window.innerWidth > 768) {
+            new WOW().init();
+        }
+    </script>
+
+    <title>STUDIO⚡180</title>
+
+    <style>
+        .btn-outline.btn-info:hover {
+            color: #fff !important;
+        }
+
+        .whatsapp {
+            position: fixed;
+            bottom: 30px;
+            right: 20px;
+            z-index: 100;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Selecciona todos los botones y añade un evento de clic
+            document.querySelectorAll('.plan-button').forEach(button => {
+                button.addEventListener('click', () => {
+                    // Obtiene el id del plan a mostrar desde el atributo data-plan del botón
+                    const planToShow = button.getAttribute('data-plan');
+
+                    // Oculta todos los planes
+                    document.querySelectorAll('.plan').forEach(plan => {
+                        plan.classList.add('hidden');
+                    });
+
+                    // Muestra el plan seleccionado
+                    document.getElementById(planToShow).classList.remove('hidden');
+
+                    // Cambia las clases de los botones
+                    document.querySelectorAll('.plan-button').forEach(btn => {
+                        if (btn === button) {
+                            btn.classList.remove('btn-neutral');
+                            btn.classList.add('btn-info');
+                        } else {
+                            btn.classList.remove('btn-info');
+                            btn.classList.add('btn-neutral');
+                        }
+                    });
+                });
+            });
+        })
+    </script>
+
+</head>
+
+<body class="bg-slate-900">
+
+    <div class="whatsapp">
+        <div class="bg-sky-500 p-4 flex" style="border-radius: 100%;">
+            <a href="https://wa.me/573239331730" target="_blank" class="p-0 m-0">
+                <i class="fa-brands fa-whatsapp fa-2xl text-slate-100 p-0 m-0 fa-shake"></i>
+            </a>
+        </div>
+    </div>
+    <!-- navbar -->
+    <div class="navbar bg-slate-950">
+        <div class="navbar-start">
+            <div class="dropdown">
+                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h7" />
+                    </svg>
+                </div>
+                <ul tabindex="0"
+                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                    <li><a href="./index.html">Inicio</a></li>
+                    <li><a href="./index.html#planes">Planes</a></li>
+                    <li><a href="./index.html#herramientas">Herramientas</a></li>
+                    <li><a href="./index.html#objetivo">Objetivo</a></li>
+                    <li><a href="./index.html#faqs">FAQ's</a></li>
+                    <li><a href="./index.html#testimonios">Testimonios</a></li>
+                    <li><a href="./index.html#contacto">Contacto</a></li>
+                    <li><a href="./index.html#us">Nosotros</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div>
+            <div class="flex justify-center items-center">
+                <img src="./assets/img/banner.png" alt="" width="20%" class="hidden md:inline">
+                <img src="./assets/img/bannerMobile.png" alt="" width="15%" class="inline md:hidden">
+            </div>
+        </div>
+
+        <div class="navbar-end">
+            <button class="btn btn-ghost btn-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </button>
+
+        </div>
+    </div>
+    <!-- navbar -->
+
+    <!-- solutions section -->
+    <div class="2xl:p-10">
+        <div class="w-full bg-slate-950 2xl:rounded-lg">
+
+            <div class="bannerDev">
+
+            </div>
+
+            <div class="md:pt-10 md:px-10 px-6 pt-6 md:text-start text-center">
+                <h2 class="inline md:text-4xl text-2xl text-sky-400 font-bold">PLANES DE DESARROLLO<span
+                        class="text-slate-500">__</span>
+                </h2>
+            </div>
+
+            <div class="">
+
+                <div class="md:px-20 md:py-14 py-10 px-6 flex md:justify-end justify-center">
+
+                    <div class="flex md:gap-5 gap-2">
+
+                        <button data-plan="plan1" class="plan-button btn btn-info text-white ">MARCA</button>
+                        <button data-plan="plan2" class="plan-button btn btn-neutral text-white ">EMPRENDEDOR</button>
+                        <button data-plan="plan3" class="plan-button btn btn-neutral text-white ">EMPRESARIAL</button>
+
+                    </div>
+
+                </div>
+
+                <div
+                    class="flex md:flex-row md:gap-20 gap-10 flex-col md:items-start items-center justify-center pb-6 md:items-stretch">
+
+                    <div
+                        class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                        <div>
+                            <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">BÁSICO</h5>
+                            <div class="flex items-baseline text-gray-900 dark:text-white">
+                                <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                <span class="md:text-5xl text-4xl font-extrabold tracking-tight">500.000</span>
+                                <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                            </div>
+                            <ul role="list" class="space-y-5 my-7">
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Landing
+                                        Page</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                        Personalizado</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                        Responsivo</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización
+                                        SEO</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Hosting y
+                                        Dominio</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                            class="text-sky-300">1</span> Nucleo de CPU</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                            class="text-sky-300">2</span> GB De Ram</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                            class="text-sky-300">20</span> GB Almacenamiento SSD</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Certificado
+                                        SSL</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Monitor De
+                                        Recursos</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Backups
+                                        Semanales</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span
+                                        class="text-base font-normal leading-tight text-gray-100 ms-3">Mantenimiento</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                        <path
+                                            d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                    </svg>
+                                    <span class="text-base font-normal leading-tight text-gray-100 ms-3">Soporte
+                                        Técnico</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                PLAN</button>
+                        </div>
+                    </div>
+
+                    <div class="flex md:flex-row flex-col md:gap-20 gap-10 plan" id="plan1">
+                        <div
+                            class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                            <div>
+                                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">INFORMATIVO</h5>
+                                <div class="flex items-baseline text-gray-900 dark:text-white">
+                                    <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                    <span class="md:text-5xl text-4xl font-extrabold tracking-tight">570.000</span>
+                                    <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                                </div>
+                                <ul role="list" class="space-y-5 my-7">
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Landing
+                                            Page</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Personalizado</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Responsivo</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización
+                                            SEO</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Posicionamiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Hosting y
+                                            Dominio</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">1</span> Nucleo de CPU</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">2</span> GB De Ram</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">20</span> GB Almacenamiento SSD</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Certificado
+                                            SSL</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Monitor De
+                                            Recursos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Backups
+                                            Semanales</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Mantenimiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Soporte
+                                            Técnico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Catalogo
+                                            Virtual *</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                    PLAN</button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                            <div>
+                                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">FUNCIONAL</h5>
+                                <div class="flex items-baseline text-gray-900 dark:text-white">
+                                    <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                    <span class="md:text-5xl text-4xl font-extrabold tracking-tight">650.000</span>
+                                    <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                                </div>
+                                <ul role="list" class="space-y-5 my-7">
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Pagina
+                                            Web</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Personalizado</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Responsivo</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización
+                                            SEO</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Posicionamiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Hosting y
+                                            Dominio</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">1</span> Nucleo de CPU</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">2</span> GB De Ram</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">25</span> GB Almacenamiento SSD</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Certificado
+                                            SSL</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Monitor De
+                                            Recursos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Backups
+                                            Semanales</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Mantenimiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Soporte
+                                            Técnico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">E-commerce
+                                            *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Reservas
+                                            *</span>
+                                    </li>
+
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Catalogo
+                                            Virutal *</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                    PLAN</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden flex md:flex-row flex-col md:gap-20 gap-10 plan" id="plan2">
+                        <div
+                            class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                            <div>
+                                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">INICIAL</h5>
+                                <div class="flex items-baseline text-gray-900 dark:text-white">
+                                    <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                    <span class="md:text-5xl text-4xl font-extrabold tracking-tight">750.000</span>
+                                    <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                                </div>
+                                <ul role="list" class="space-y-5 my-7">
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Landing
+                                            Page ó Pagina Web</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Personalizado</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Responsivo</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización
+                                            SEO</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Posicionamiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Hosting y
+                                            Dominio</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">1</span> Nucleo de CPU</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">2</span> GB De Ram</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">30</span> GB Almacenamiento SSD</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Certificado
+                                            SSL</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Monitor De
+                                            Recursos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Backups
+                                            Semanales</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Mantenimiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Soporte
+                                            Técnico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Catalogo
+                                            Virtual *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">E-commerce *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Sistema De Reservas *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización Multimedia *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Manejo De Inventario *</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                    PLAN</button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                            <div>
+                                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">AVANZADO</h5>
+                                <div class="flex items-baseline text-gray-900 dark:text-white">
+                                    <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                    <span class="md:text-5xl text-4xl font-extrabold tracking-tight">800.000</span>
+                                    <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                                </div>
+                                <ul role="list" class="space-y-5 my-7">
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Landing Page ó Pagina
+                                            Web</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Personalizado</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Responsivo</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización
+                                            SEO</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Posicionamiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Hosting y
+                                            Dominio</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">2</span> Nucleo de CPU</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">4</span> GB De Ram</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">50</span> GB Almacenamiento SSD</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Certificado
+                                            SSL</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Monitor De
+                                            Recursos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Backups
+                                            Semanales</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Mantenimiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Soporte
+                                            Técnico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">E-commerce
+                                            *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Reservas
+                                            *</span>
+                                    </li>
+
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Catalogo
+                                            Virutal *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">E-commerce *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Sistema De Reservas *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización Multimedia *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Manejo De Inventario *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Minificación De Archivos *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Google Analytics *</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                    PLAN</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hidden flex md:flex-row flex-col md:gap-20 gap-10 plan" id="plan3">
+                        <div
+                            class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                            <div>
+                                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">PREMIUM</h5>
+                                <div class="flex items-baseline text-gray-900 dark:text-white">
+                                    <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                    <span class="md:text-5xl text-4xl font-extrabold tracking-tight">1.050.000</span>
+                                    <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                                </div>
+                                <ul role="list" class="space-y-5 my-7">
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Landing Page ó Pagina
+                                            Web</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Personalizado</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Diseño
+                                            Responsivo</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización
+                                            SEO</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Posicionamiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Hosting y
+                                            Dominio</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">2</span> Nucleo de CPU</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">8</span> GB De Ram</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3"><span
+                                                class="text-sky-300">100</span> GB Almacenamiento SSD</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Certificado
+                                            SSL</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Monitor De
+                                            Recursos</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Backups
+                                            Semanales</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span
+                                            class="text-base font-normal leading-tight text-gray-100 ms-3">Mantenimiento</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Soporte
+                                            Técnico</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">E-commerce
+                                            *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Reservas
+                                            *</span>
+                                    </li>
+
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Catalogo
+                                            Virutal *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">E-commerce *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Sistema De Reservas *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Optimización Multimedia *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Manejo De Inventario *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Minificación De Archivos *</span>
+                                    </li>
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Google Analytics *</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                    PLAN</button>
+                            </div>
+                        </div>
+
+                        <div
+                            class="w-full max-w-sm p-8 border border-gray-200 rounded-lg shadow sm:p-10 border-sky-500 flex flex-col justify-between">
+                            <div>
+                                <h5 class="mb-4 text-xl font-medium text-gray-500 dark:text-gray-400">PERSONALIZADO</h5>
+                                <div class="flex items-baseline text-gray-900 dark:text-white">
+                                    <span class="md:text-3xl text-2xl font-semibold">$</span>
+                                    <span class="md:text-5xl text-4xl font-extrabold tracking-tight">¿?</span>
+                                    <span class="ms-1 md:text-xl text-lg font-normal text-gray-500 dark:text-gray-400">/COP</span>
+                                </div>
+                                <ul role="list" class="space-y-5 my-7">
+                                    <li class="flex items-center">
+                                        <svg class="flex-shrink-0 w-4 h-4 text-sky-500" aria-hidden="true"
+                                            xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path
+                                                d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5Zm3.707 8.207-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414L9 10.586l3.293-3.293a1 1 0 0 1 1.414 1.414Z" />
+                                        </svg>
+                                        <span class="text-base font-normal leading-tight text-gray-100 ms-3">Te pondremos en contacto con uno de nuestros asesores para determinar un plan con caracteristicas adecuadas a tus necesidades.</span>
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info font-bold w-full mt-4 text-white ">QUIERO ESTE
+                                    PLAN</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="md:px-20 px-4 py-5">
+                    <div class="flex p-4 mb-4 text-sm rounded-lg bg-gray-800 text-blue-400" role="alert">
+
+                        <i class="fa-light fa-circle-info flex-shrink-0 inline me-2 mt-[2px]"></i>
+
+                        <span class="sr-only">Info</span>
+
+                        <div>
+                            <span>Para cada proyecto es importante tener los siguientes puntos en
+                                cuenta:</span>
+                            <ul class="mt-1.5 list-disc list-inside">
+                                <li class="text-sky-100">LAS <span class="text-sky-400 text-xl"> * </span> EN LAS
+                                    CARACTERISTICIAS INDICAN
+                                    QUE SON OPCIONALES Y PUEDEN VARIAR EL PRECIO.</li>
+                                <br>
+                                <li class="text-sky-100">TODOS LOS PLANES CUENTAN CON ESCALABILIDAD. PUEDES INICIAR CON
+                                    EL
+                                    PLAN BASICO PARA PROBAR NUESTROS SERVICIOS Y AUMENTAR A CUALQUIER PLAN.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="md:p-14 p-10">
+                <div>
+                    <h3 class="text-3xl font-bold text-sky-500">¿Tienes alguna duda o propuesta diferente?</h3>
+                    <p class="text-slate-300 text-lg my-4">En <span class="text-sky-300 font-bold">STUDIO 180</span> nos
+                        gusta escuchar todas las increibles ideas que nuestros clientes tienen para proponer <br> no
+                        dudes en contactarnos a través de cualquiera de nuestras redes </p>
+                </div>
+                <div>
+                    <a href="https://forms.gle/aK8LujLtaV124g6D9" target="_blank"
+                        class="btn btn-info mt-4 btn-lg md:w-auto w-full ">¡PRESENTAR MI PROPUESTA!</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- solutions section -->
+
+    <div class="divider bg-slate-200 m-0 2xl:hidden" style="height: 0.25rem;"></div>
+
+    <!-- footer section -->
+    <footer class="footer bg-slate-950 text-slate-300 p-10">
+        <aside>
+            <img src="./assets/img/bannerMobile.png" width="12%" alt="">
+            <p>
+                Studio Web 180.
+                <br />
+                Copyright © 2024 - All right reserved
+            </p>
+        </aside>
+        <nav>
+            <h6 class="footer-title">Servicios</h6>
+            <a class="link link-hover" href="./planesMark.html">Marketing</a>
+            <a class="link link-hover" href="./planesDev.html">Desarrollo</a>
+            <a class="link link-hover" href="./planesDis.html">Diseño</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Empresa</h6>
+            <a class="link link-hover" href="./index.html">Inicio</a>
+            <a class="link link-hover" href="./index.html#planes">Planes</a>
+            <a class="link link-hover" href="./index.html#herramientas">Herramientas</a>
+            <a class="link link-hover" href="./index.html#objetivo">Objetivo</a>
+            <a class="link link-hover" href="./index.html#faqs">FAQ's</a>
+            <a class="link link-hover" href="./index.html#testimonios">Testimonios</a>
+            <a class="link link-hover" href="./index.html#contacto">Contacto</a>
+            <a class="link link-hover" href="./index.html#us">Nosotros</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Social</h6>
+            <div class="grid grid-flow-col gap-4">
+                <a href="https://www.instagram.com/studioweb180/" target="_blank">
+                    <img src="./assets/img/icons/ig.png" width="24" height="24" alt="Instagram">
+                </a>
+                <a href="https://www.tiktok.com/@studioweb180?_t=8o4eyrshGI1&_r=1" target="_blank">
+                    <img src="./assets/img/icons/tk.png" width="24" height="24" alt="Instagram">
+                </a>
+                <a href="https://web.facebook.com/profile.php?id=61563049161885&is_tour_completed" target="_blank">
+                    <img src="./assets/img/icons/fb.png" width="24" height="24" alt="Instagram">
+                </a>
+            </div>
+        </nav>
+    </footer>
+    <!-- footer section -->
+
+
+
+</body>
+
+</html>
