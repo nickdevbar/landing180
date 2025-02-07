@@ -44,15 +44,55 @@
             // Inicializa el texto con un espacio en blanco
             dynamicText.innerHTML = '&nbsp;';
             type();
+
+            // Obtenemos todas las secciones y los elementos del índice
+            const sections = document.querySelectorAll('section[id]');
+            const navItems = document.querySelectorAll('.indice');
+
+            // Función para actualizar el índice activo
+            function updateActiveIndex() {
+                let currentSection = '';
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 450; // Ajusta este valor según tu navbar
+                    const sectionHeight = section.offsetHeight;
+                    const scrollPosition = window.scrollY;
+
+                    if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                        currentSection = section.getAttribute('id');
+                    }
+                });
+
+                // Actualizar clase active en el índice
+                navItems.forEach(item => {
+                    const href = item.querySelector('a').getAttribute('href').substring(1);
+
+                    if (href === currentSection) {
+                        item.querySelector('a').classList.add('bg-sky-500/30', 'text-slate-50', 'font-bold');
+                    } else {
+                        item.querySelector('a').classList.remove('bg-sky-500/30', 'text-slate-50', 'font-bold');
+                    }
+                });
+
+            }
+
+            // Escuchar el evento scroll
+            window.addEventListener('scroll', updateActiveIndex);
         });
     </script>
 
     <link rel="stylesheet" href="./main.css">
+    <script src="https://code.iconify.design/3/3.1.0/iconify.min.js"></script>
     <link href="./assets/fontawesome/css/all.min.css" rel="stylesheet" type="text/css" />
     <link href="./assets/css/full.min.css" rel="stylesheet" type="text/css" />
     <link href="./assets/css/main.css" rel="stylesheet" type="text/css" />
     <script src="./assets/js/tailwind.js"></script>
-    <script src="./assets/js/wow.min.js"></script>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" as="style"
+        onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet" />
+    </noscript>
+
 
     <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
 
@@ -70,28 +110,8 @@
                     colors: {
                         clifford: '#da373d',
                     },
-                    height: {
-                        '128': '460px', // Agrega tu nueva clase de altura personalizada aquí
-                    },
                 }
             }
-        }
-    </script>
-
-    <style>
-        /* Ocultar animaciones en móviles */
-        @media (max-width: 768px) {
-            .wow {
-                visibility: visible !important;
-                animation: none !important;
-            }
-        }
-    </style>
-
-    <script>
-        // Inicializar Wow.js solo en vista de escritorio
-        if (window.innerWidth > 768) {
-            new WOW().init();
         }
     </script>
 
@@ -116,741 +136,604 @@
 
 </head>
 
-<body class="bg-slate-900">
+<body class="bg-slate-950">
+
+
 
     <div class="whatsapp">
-        <div class="bg-sky-500 p-4 flex" style="border-radius: 100%;">
-            <a href="https://wa.me/573239331730" target="_blank" class="p-0 m-0">
-                <i class="fa-brands fa-whatsapp fa-2xl text-slate-100 p-0 m-0 fa-shake"></i>
-            </a>
-        </div>
+        <a href="https://wa.me/573239331730" target="_blank">
+            <span class="iconify w-12 h-12 md:w-10 md:h-10 text-white bg-sky-500 p-1" data-icon="fa-brands:whatsapp"
+                style="border-radius:50px;"></span>
+        </a>
     </div>
+
     <!-- navbar -->
-    <div class="navbar bg-slate-950">
+    <div class="navbar bg-slate-950/90 fixed top-0 z-50 shadow-lg">
         <div class="navbar-start">
-            <div class="dropdown">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <img src="./assets/img/banner.png" width="120" height="42" alt="">
+
+
+        </div>
+        <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1 gap-2">
+                <li class="indice"><a href="#inicio">Inicio</a></li>
+                <li class="indice"><a href="#soluciones">Soluciones</a></li>
+                <li class="indice"><a href="#herramientas">Herramientas</a></li>
+                <li class="indice"><a href="#objetivo">Objetivo</a></li>
+                <li class="indice"><a href="#testimonios">Testimonios</a></li>
+                <li class="indice"><a href="#contacto">Contacto</a></li>
+                <li class="indice"><a href="#faqs">FAQ's</a></li>
+                <li class="indice"><a href="#nosotros">Nosotros</a></li>
+            </ul>
+        </div>
+        <div class="navbar-end">
+            <div class="dropdown dropdown-end md:hidden">
+                <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h16M4 18h7" />
+                            d="M4 6h16M4 12h8m-8 6h16" />
                     </svg>
                 </div>
                 <ul tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><a href="#planes">Planes</a></li>
+                    class="menu menu-sm dropdown-content bg-slate-900/90 rounded-box text-white font-bold z-[1] mt-3 w-52 p-2 shadow gap-4">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#soluciones">Soluciones</a></li>
                     <li><a href="#herramientas">Herramientas</a></li>
                     <li><a href="#objetivo">Objetivo</a></li>
-                    <li><a href="#faqs">FAQ's</a></li>
                     <li><a href="#testimonios">Testimonios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="#us">Nosotros</a></li>
+                    <li><a href="#faqs">FAQ's</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
                 </ul>
             </div>
-        </div>
-
-        <div>
-            <div class="flex justify-center items-center">
-                <img src="./assets/img/banner.png" alt="" width="20%" class="hidden md:inline">
-                <img src="./assets/img/bannerMobile.png" alt="" width="15%" class="inline md:hidden">
-            </div>
-        </div>
-
-        <div class="navbar-end">
-            <button class="btn btn-ghost btn-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                    stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-            </button>
-
         </div>
     </div>
     <!-- navbar -->
 
-    <!-- hero section -->
-    <div class="2xl:p-10">
-        <div class=" w-full bg-sky-950 p-7 md:p-20 py-14 first-section 2xl:rounded-lg">
-            <h1 class="block md:inline text-6xl text-sky-500 font-bold italic">180&nbsp</h1>
-            <h1 id="dynamicText" class="block md:inline text-6xl text-slate-50 font-bold text-start italic"> </h1>
-            <div class="py-5">
-                <h2 class="text-lg text-slate-200">
-                    Somos un equipo de profesionales con experiencia en herramientas de marketing digital. <br> Las
-                    cuales te permitirán progresar exponencialmente <br> con la oferta de tus productos o servicios en
+    <section class="first-section" id="inicio">
+        <div class="container mx-auto">
+            <h1 class="block md:inline md:text-6xl text-4xl text-sky-500 font-black">180&nbsp</h1>
+            <h1 id="dynamicText"
+                class="block md:inline md:text-6xl text-4xl text-slate-50 font-black uppercase text-start">
+            </h1>
+            <h2 class="text-sky-500 my-4 md:text-3xl text-2xl font-bold wow animate__animated animate__fadeInLeft"
+                data-wow-delay="0.0s">¡HAZ REALIDAD TUS
+                IDEAS!</h2>
+            <div class="md:w-1/2 w-full mb-6">
+                <h3 class="text-lg text-slate-100 font-light wow animate__animated animate__fadeInLeft"
+                    data-wow-delay="0.2s">
+                    Somos un equipo de profesionales con experiencia en herramientas de marketing digital. Las
+                    cuales te permitirán progresar exponencialmente con la oferta de tus productos o servicios
+                    en
                     el ámbito web.
-                </h2>
+                </h3>
             </div>
 
-            <div>
+            <div class="wow animate__animated animate__fadeInDown">
                 <a href="https://wa.me/573239331730" target="_blank"
-                    class="btn btn-info me-2 w-full mb-4 md:w-auto text-lg md:text-sm text-slate-100 focus:text-slate-50">Contáctanos
-                    <i class="fa-solid fa-headset"></i></a>
-                <a href="https://forms.gle/aK8LujLtaV124g6D9" target="_blank"
-                    class="btn btn-outline btn-info w-full md:w-auto text-lg md:text-sm ">Saber Más <i
-                        class="fa-regular fa-arrow-right"></i></a>
+                    class="btn btn-info me-2 w-full mb-4 md:w-auto text-xl md:text-sm text-black focus:text-slate-50 px-14">EMPIEZA
+                    AHORA
+                    <a href="https://forms.gle/aK8LujLtaV124g6D9" target="_blank"
+                        class="btn btn-outline btn-info w-full md:w-auto text-xl md:text-sm ">Saber Más <i
+                            class="fa-regular fa-arrow-right"></i></a>
             </div>
         </div>
-    </div>
+    </section>
     <!-- hero section -->
 
-    <!-- solutions section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10" id="planes">
-        <div class="w-full bg-slate-950 2xl:rounded-lg">
-            <div class="md:p-10 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">SOLUCIONES<span class="text-slate-500">__</span>
-                </h2>
-            </div>
-            <div class="md:px-20 px-6">
-                <div class="flex items-center justify-center md:flex-row md:gap-20 flex-col">
+    <section id="soluciones">
+        <div class="container mx-auto my-10">
+            <h4 class="text-2xl text-sky-400 font-black mb-6">SOLUCIONES<span class="text-slate-500">__</span></h4>
+            <div class="grid md:grid-cols-3 grid-cols-1 gap-10">
 
-                    <div
-                        class="card bg-sky-800 text-neutral-content w-96 mb-8 shadow-lg hover:shadow-cyan-500/50 wow animate__animated animate__fadeInLeft">
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title text-5xl p-20 text-slate-100"><i
-                                    class="fa-solid fa-chart-column fa-xl fa-fade"></i></h2>
-                            <h2 class="card-title text-slate-200 my-2">MARKETING</h2>
-                            <p class="text-slate-300">Desarrollamos estrategias digitales para aumentar la visibilidad y
-                                atraer clientes potenciales, abarcando publicidad en redes sociales, SEO y marketing de
-                                contenido.</p>
-                            <div class="card-actions justify-end mt-3">
-                                <a href="./planesMark.html" class="btn btn-outline btn-info">VER PLANES</a>
-                            </div>
+                <div class="card bg-blue-500/50 text-neutral-content wow animate__animated animate__flipInY"
+                    data-wow-delay="0.0s">
+                    <div class="card-body">
+                        <div class="flex justify-center">
+                            <h5 class="card-title md:text-5xl text-6xl p-20 text-sky-600 "><i
+                                    class="fa-solid fa-chart-column fa-xl fa-fade"></i></h5>
+                        </div>
+                        <h5 class="card-title text-3xl text-sky-400 my-2 font-bold">MARKETING</h5>
+                        <p class="text-slate-200 text-light">Desarrollamos estrategias digitales para aumentar la
+                            visibilidad y
+                            atraer clientes potenciales, abarcando publicidad en redes sociales, SEO y marketing de
+                            contenido.</p>
+                        <div class="card-actions justify-end align-end mt-3">
+                            <a href="https://wa.me/573239331730" class="btn btn-outline btn-info">ME INTERESA 👆</a>
                         </div>
                     </div>
-
-                    <div
-                        class="card bg-sky-800 text-neutral-content w-96 mb-8 shadow-lg hover:shadow-cyan-500/50 wow animate__animated animate__fadeIn">
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title text-5xl p-20 text-slate-100"><i
-                                    class="fa-solid fa-code fa-xl fa-fade"></i>
-                            </h2>
-                            <h2 class="card-title text-slate-200 my-2">DESARROLLO</h2>
-                            <p class="text-slate-300">Creamos aplicaciones web y móviles, sistemas de gestión y
-                                plataformas de comercio electrónico utilizando tecnologías modernas y metodologías
-                                ágiles.</p>
-                            <div class="card-actions justify-end mt-3">
-                                <a href="./planesDev.html" class="btn btn-outline btn-info">VER PLANES</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div
-                        class="card bg-sky-800 text-neutral-content w-96 mb-8 shadow-lg hover:shadow-cyan-500/50 wow animate__animated animate__fadeInRight">
-                        <div class="card-body items-center text-center">
-                            <h2 class="card-title text-5xl p-20 text-slate-100"><i
-                                    class="fa-solid fa-display fa-xl fa-fade"></i>
-                            </h2>
-                            <h2 class="card-title text-slate-200 my-2">DISEÑO</h2>
-                            <p class="text-slate-300">Diseñamos interfaces y experiencias visuales que mejoran la
-                                interacción con tu marca, incluyendo UI/UX y creación de identidades corporativas que
-                                destacan tu marca.</p>
-                            <div class="card-actions justify-end mt-3">
-                                <a href="./planesDis.html" class="btn btn-outline btn-info">VER PLANES</a>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
-            </div>
-
-        </div>
-    </div>
-    <!-- solutions section -->
-
-    <!-- herramientas section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10" id="herramientas">
-        <div class="w-full bg-slate-200 2xl:rounded-lg">
-            <div class="md:p-10 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">HERRAMIENTAS<span class="text-slate-500">__</span>
-                </h2>
-            </div>
-            <div class="md:px-14 px-6 md:pb-14 pb-6">
-
-                <div class="w-full stats stats-vertical bg-slate-900 lg:stats-horizontal shadow">
-                    <div class="stat textLeft">
-                        <div class="stat-title text-slate-600 text-lg font-bold">Publicidad</div>
-                        <ul class="list-disc px-8 py-4 text-slate-400">
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Análisis de la competencia</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Google Ads</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Marketing de afiliación</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Optimización y creación de
-                                contenido</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Estrategias de crecimiento orgánico
-                            </li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Campañas publicitarias</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Manejo de redes sociales</li>
-                        </ul>
+                <div class="card bg-blue-500/50 text-neutral-content wow animate__animated animate__flipInY"
+                    data-wow-delay="0.2s">
+                    <div class="card-body">
+                        <div class="flex justify-center">
+                            <h5 class="card-title text-5xl p-20 text-sky-600 "><i
+                                    class="fa-solid fa-code fa-xl fa-fade"></i></h5>
+                        </div>
+                        <h5 class="card-title text-3xl text-sky-400 my-2 font-bold">DESARROLLO</h5>
+                        <p class="text-slate-200 text-light">Creamos aplicaciones web y móviles, sistemas de gestión y
+                            plataformas de comercio electrónico utilizando tecnologías modernas y metodologías
+                            ágiles.</p>
+                        <div class="card-actions justify-end align-end mt-3">
+                            <a href="https://wa.me/573239331730" class="btn btn-outline btn-info">ME INTERESA 👆</a>
+                        </div>
                     </div>
-
-                    <div class="stat">
-                        <div class="stat-title text-slate-600 text-lg font-bold">Sistemas</div>
-                        <ul class="list-disc px-8 py-4 text-slate-400">
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">FrontEnd y BackEnd</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Responsive</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">E-commerce</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Mantenimiento y soporte técnico
-                            </li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Landing Page</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">CRM Personalizado</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Desarrollo de APIs</li>
-                        </ul>
-                    </div>
-
-                    <div class="stat">
-                        <div class="stat-title text-slate-600 text-lg font-bold">Maquetación</div>
-                        <ul class="list-disc px-8 py-4 text-slate-400">
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Logotipos</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Identidad de marca</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Material promocional</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Ilustración digital</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Creación de contenido</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Edición de video y fotografia</li>
-                            <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Montaje y postproducción</li>
-                        </ul>
+                </div>
+                <div class="card bg-blue-500/50 text-neutral-content wow animate__animated animate__flipInY"
+                    data-wow-delay="0.4s">
+                    <div class="card-body">
+                        <div class="flex justify-center">
+                            <h5 class="card-title text-5xl p-20 text-sky-600 "><i
+                                    class="fa-solid fa-display fa-xl fa-fade"></i></h5>
+                        </div>
+                        <h5 class="card-title text-3xl text-sky-400 my-2 font-bold">DISEÑO</h5>
+                        <p class="text-slate-200 text-light">Diseñamos interfaces y experiencias visuales que mejoran la
+                            interacción con tu marca, incluyendo UI/UX y creación de identidades corporativas que
+                            destacan tu marca.</p>
+                        <div class="card-actions justify-end align-end mt-3">
+                            <a href="https://wa.me/573239331730" class="btn btn-outline btn-info">ME INTERESA 👆</a>
+                        </div>
                     </div>
                 </div>
 
             </div>
-
         </div>
-    </div>
-    <!-- herramientas section -->
+    </section>
 
-    <!-- objetivo section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10" id="objetivo">
-        <div class="w-full bg-slate-950 2xl:rounded-lg">
-            <div class="md:p-10 md:pb-0 pb-0 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">OBJETIVO<span class="text-slate-500">__</span> </h2>
-            </div>
-            <div class="p-12">
+    <section id="herramientas">
+        <div class="container mx-auto my-10">
+            <h4 class="text-2xl text-sky-400 font-black mb-6">HERRAMIENTAS<span class="text-slate-500">__</span></h4>
 
+            <div
+                class="w-full stats stats-vertical bg-sky-900/10 lg:stats-horizontal shadow wow animate__animated animate__fadeInUp">
+                <div class="stat textLeft">
+                    <div class="stat-title text-blue-500 text-lg font-bold">Publicidad</div>
+                    <ul class="list-disc px-8 py-4 text-slate-300">
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Análisis de la competencia</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Google Ads</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Marketing de afiliación</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Optimización y creación de
+                            contenido</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Estrategias de crecimiento orgánico
+                        </li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Campañas publicitarias</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Manejo de redes sociales</li>
+                    </ul>
+                </div>
 
+                <div class="stat">
+                    <div class="stat-title text-blue-500 text-lg font-bold">Sistemas</div>
+                    <ul class="list-disc px-8 py-4 text-slate-300">
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">FrontEnd y BackEnd</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Responsive</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">E-commerce</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Mantenimiento y soporte técnico
+                        </li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Landing Page</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">CRM Personalizado</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Desarrollo de APIs</li>
+                    </ul>
+                </div>
 
-                <ol class="items-center sm:flex">
-                    <li class="relative mb-6 sm:mb-0">
-                        <div class="flex items-center md:justify-center">
-                            <div
-                                class="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                1
-                            </div>
-                        </div>
-                        <div
-                            class="md:mt-12 mt-6 md:text-center text-left md:px-2  wow animate__animated animate__fadeInLeft ">
-                            <div class="text-xl text-sky-300 font-bold">ORIENTAR</div>
-
-                            <p class="text-base font-normal text-gray-300 dark:text-gray-400">Nuestra misión es guiarte
-                                hacia el éxito. Teniendo en cuenta tus necesidades, objetivos y
-                                desafíos, te brindamos recomendaciones estratégicas que te permitan alcanzar tus metas
-                                de
-                                manera eficiente. El enfoque es personalizado y basado en la comprensión de tu caso.</p>
-                        </div>
-                    </li>
-                    <li class="relative mb-6 sm:mb-0">
-                        <div class="flex items-center md:justify-center">
-                            <div
-                                class="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                2
-                            </div>
-                        </div>
-                        <div
-                            class="md:mt-12 mt-6 md:text-center text-left md:px-2  wow animate__animated animate__fadeInLeft">
-                            <div class="text-xl text-sky-300 font-bold">ESTRUCTURAR</div>
-                            <p class="text-base font-normal text-gray-300 dark:text-gray-400">Trabajaremos en conjunto
-                                para establecer procesos y sistemas que le permitan optimizar las
-                                operaciones, mejorar la coordinación de tus equipos y aprovechar al máximo los recursos
-                                disponibles.</p>
-                        </div>
-                    </li>
-                    <li class="relative mb-6 sm:mb-0">
-                        <div class="flex items-center md:justify-center">
-                            <div
-                                class="z-10 flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full ring-0 ring-white dark:bg-blue-900 sm:ring-8 dark:ring-gray-900 shrink-0">
-                                3
-                            </div>
-                        </div>
-                        <div
-                            class="md:mt-12 mt-6 md:text-center text-left md:px-2  wow animate__animated animate__fadeInLeft">
-                            <div class="text-xl text-sky-300 font-bold">POTENCIAR</div>
-                            <p class="text-base font-normal text-gray-300 dark:text-gray-400">Te brindamos las
-                                herramientas y el apoyo necesario para que puedas alcanzar nuevas metas y
-                                superar tus propias expectativas. Somos tu socio estratégico, para que puedas destacar
-                                en un
-                                mercado cada vez más competitivo. Estamos aquí para ayudarte a lograr tus objetivos y
-                                desafíos..</p>
-                        </div>
-                    </li>
-                </ol>
-
-
-
-
-
-            </div>
-
-        </div>
-    </div>
-    <!-- objetivo section -->
-
-    <!-- herramientas section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10 wow animate__animated animate__backInLeft">
-        <div class="w-full bg-white 2xl:rounded-lg">
-
-            <div class="md:px-14 px-6 md:py-14 py-10">
-                <div class="">
-                    <div class="w-full">
-                        <h1 class="text-5xl italic font-bold text-sky-500">¡QUEREMOS CONOCERTE!</h1>
-                        <p class="py-6 text-xl text-slate-900 font-light">
-                            Estas a un paso de crecer junto a nosotros. <br>
-                            Puedes hablarnos sobre tu propuesta <br>
-                            a traves del siguiente formulario.
-                        </p>
-                        <a href="https://forms.gle/aK8LujLtaV124g6D9" target="_blank"
-                            class="btn btn-info btn-lg text-slate-100 md:w-1/4 w-full">Ir al formulario <i
-                                class="fa-regular fa-arrow-right fa-shake"></i></a>
-                    </div>
+                <div class="stat">
+                    <div class="stat-title text-blue-500 text-lg font-bold">Maquetación</div>
+                    <ul class="list-disc px-8 py-4 text-slate-300">
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Logotipos</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Identidad de marca</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Material promocional</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Ilustración digital</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Creación de contenido</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Edición de video y fotografia</li>
+                        <li class="mb-4 hover:text-sky-400 hover:cursor-pointer">Montaje y postproducción</li>
+                    </ul>
                 </div>
             </div>
 
         </div>
-    </div>
-    <!-- herramientas section -->
+    </section>
 
-    <!-- equipo section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10 wow animate__animated animate__backInRight" id="faqs">
-        <div class="w-full bg-slate-950 2xl:rounded-lg">
-            <div class="md:p-10 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">FAQ's<span class="text-slate-500">__</span>
-                </h2>
-            </div>
-            <div class="md:px-10 px-6 pb-10">
-                <div>
-                    <div class="join join-vertical w-full">
-
-                        <div class="collapse collapse-arrow join-item border-slate-500 border">
-                            <input type="radio" name="my-accordion-4" checked="checked" />
-                            <div class="collapse-title text-xl font-medium text-blue-300 font-bold">No encuentro un plan
-                                que se adapte a mi negocio
-                            </div>
-                            <div class="collapse-content">
-                                <p class="text-gray-100">Entendemos que no todos los negocios tienen las mismas
-                                    necesidades ni buscan lo mismo, por lo tanto, si no te sientes identificado con un
-                                    plan puedes escribirnos, y te cotizamos un plan que se adapte a lo que buscas.</p>
-                            </div>
-                        </div>
-
-                        <div class="collapse collapse-arrow join-item border-slate-500 border">
-                            <input type="radio" name="my-accordion-4" />
-                            <div class="collapse-title text-xl font-medium text-blue-300 font-bold">Tiempo de entrega
-                                del proyecto
-                            </div>
-                            <div class="collapse-content">
-                                <p class="text-gray-100">Para estimarte un tiempo de entrega, debemos conocer que
-                                    especificaciones requieres en tu sitio web para aproximarte una fecha de entrega.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="collapse collapse-arrow join-item border-slate-500 border">
-                            <input type="radio" name="my-accordion-4" />
-                            <div class="collapse-title text-xl font-medium text-blue-300 font-bold">Ofrecemos
-                                financiación en nuestros servicios
-                            </div>
-                            <div class="collapse-content">
-                                <p class="text-gray-100">Puedes llegar a un acuerdo de financiación con nosotros, en el
-                                    cual te sientas cómodo y puedas contratar nuestros servicios de marketing digital.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="collapse collapse-arrow join-item border-slate-500 border">
-                            <input type="radio" name="my-accordion-4" />
-                            <div class="collapse-title text-xl font-medium text-blue-300 font-bold">Beneficios de
-                                implementar un sitio web a mi negocio
-                            </div>
-                            <div class="collapse-content">
-                                <p class="text-gray-100">De forma general, un sitio web te permite lo siguiente: <br>
-                                    <br> • Optimizar tiempos y procesos en tu negocio
-                                    <br> • Automatizar ventas
-                                    <br> • Medir indicadores como demanda, trafico online, servicio al cliente etc
-                                    <br> • Estructurar tus productos y servicios en un solo lugar
-                                    <br> • Darle mas profesionalismo a tu negocio.
-                                </p>
-                            </div>
-                        </div>
-
-
-
-                    </div>
+    <section id="objetivo" class="bg-blue-500/30">
+        <div class="container mx-auto my-10 py-10">
+            <div class="flex flex-col justify-center items-center">
+                <div class="md:w-2/3 w-full text-center">
+                    <h5 class="md:text-5xl text-3xl font-black text-sky-300 wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.0s">¡QUEREMOS CONOCERTE!</h5>
+                    <h6 class="md:text-3xl text-xl font-bold text-sky-100 uppercase my-4 wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.2s">¿Tienes alguna duda o propuesta
+                        diferente?
+                    </h6>
+                    <p class="md:text-xl text-md text-white font-light mb-4 wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.4s">
+                        En STUDIO 180 nos gusta escuchar todas las increibles ideas que nuestros clientes tienen para
+                        proponer
+                        no dudes en contactarnos a través de cualquiera de nuestras redes
+                    </p>
+                    <a href="https://forms.gle/aK8LujLtaV124g6D9" target="_blank"
+                        class="btn btn-info btn-lg text-slate-950 uppercase md:w-1/2 w-full wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.6s">Ir al formulario <i class="fa-regular fa-arrow-right fa-shake"></i></a>
                 </div>
             </div>
-
         </div>
-    </div>
-    <!-- equipo section -->
+    </section>
 
-    <!-- testimonios section -->
+    <section id="testimonios">
+        <div class="container mx-auto my-10">
+            <h4 class="text-2xl text-sky-400 font-black mb-6">TESTIMONIOS<span class="text-slate-500">__</span></h4>
 
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10" id="testimonios">
-        <div class="w-full md:bg-slate-100 bg-white 2xl:rounded-lg">
-
-            <div class="md:p-10 md:pb-0 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">TESTIMONIOS<span class="text-slate-500">__</span>
-                </h2>
-            </div>
-
-            <div class="swiper md:p-14">
+            <div class="swiper">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"Gracias a la administración de Instagram por parte de
-                                <span class="text-sky-500 font-bold">STUDIO 180</span>, nuestro perfil ha crecido
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"Gracias a la administración de Instagram por parte de
+                                <span class="text-white font-bold">STUDIO 180</span>, nuestro perfil ha crecido
                                 exponencialmente. Hemos visto un
                                 aumento significativo en el engagement y las ventas. ¡No podríamos estar más felices!"
                             </p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Andrew Nieto</p>
-                            <p class="text-sm text-gray-600">Gerente de Marketing</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Andrew Nieto</p>
+                            <p class="text-sm text-sky-500">Gerente de Marketing</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"El equipo de <span class="text-sky-500 font-bold">STUDIO
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"El equipo de <span class="text-white font-bold">STUDIO
                                     180</span> creó una página web
                                 que superó nuestras expectativas. Es moderna, funcional y ha mejorado nuestra presencia
                                 en línea. Los comentarios de nuestros clientes han sido extremadamente positivos."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">TRX ACADEMY</p>
-                            <p class="text-sm text-gray-600">Escuela de Trading</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">TRX ACADEMY</p>
+                            <p class="text-sm text-sky-500">Escuela de Trading</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"La campaña publicitaria en redes sociales que <span
-                                    class="text-sky-500 font-bold">STUDIO 180</span> gestionó para nosotros fue un éxito
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"La campaña publicitaria en redes sociales que <span
+                                    class="text-white font-bold">STUDIO 180</span> gestionó para nosotros fue un éxito
                                 rotundo. Alcanzamos a miles de nuevos
                                 clientes."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Jayco Motoa</p>
-                            <p class="text-sm text-gray-600">Gerente de Diseño</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Jayco Motoa</p>
+                            <p class="text-sm text-sky-500">Gerente de Diseño</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"La nueva identidad de marca que <span
-                                    class="text-sky-500 font-bold">STUDIO 180</span>
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"La nueva identidad de marca que <span
+                                    class="text-white font-bold">STUDIO 180</span>
                                 desarrolló ha revitalizado completamente nuestro negocio. El diseño es
                                 impresionante y refleja perfectamente nuestros valores y visión."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">ExpressAll</p>
-                            <p class="text-sm text-gray-600">CEO</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">ExpressAll</p>
+                            <p class="text-sm text-sky-500">CEO</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"Desde que contratamos a <span
-                                    class="text-sky-500 font-bold">STUDIO 180</span> para
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"Desde que contratamos a <span
+                                    class="text-white font-bold">STUDIO
+                                    180</span> para
                                 gestionar nuestros contenidos, la calidad y la relevancia de nuestras publicaciones han
                                 mejorado notablemente. Hemos notado un aumento en el tráfico y en la interacción con
                                 nuestros seguidores."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Jose David Nova</p>
-                            <p class="text-sm text-gray-600">Jefe de Comunicación</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Jose David Nova</p>
+                            <p class="text-sm text-sky-500">Jefe de Comunicación</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"Estamos encantados con los resultados del SEO
-                                implementado por <span class="text-sky-500 font-bold">STUDIO 180</span>. Nuestra página
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"Estamos encantados con los resultados del SEO
+                                implementado por <span class="text-white font-bold">STUDIO 180</span>. Nuestra página
                                 ahora aparece en los primeros
                                 resultados de búsqueda, lo que ha generado un aumento considerable en las visitas y las
                                 conversiones."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Marta Rodríguez</p>
-                            <p class="text-sm text-gray-600">Gerente de Ventas</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Marta Rodríguez</p>
+                            <p class="text-sm text-sky-500">Gerente de Ventas</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"Las campañas de email marketing diseñadas por <span
-                                    class="text-sky-500 font-bold">STUDIO 180</span> han sido un éxito. La segmentación
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"Las campañas de email marketing diseñadas por <span
+                                    class="text-white font-bold">STUDIO 180</span> han sido un éxito. La segmentación
                                 y personalización han hecho que nuestros
                                 clientes se sientan valorados, resultando en un aumento en las tasas de apertura y
                                 conversión."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Pedro Fernández</p>
-                            <p class="text-sm text-gray-600">Director de Relaciones Públicas</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Pedro Fernández</p>
+                            <p class="text-sm text-sky-500">Director de Relaciones Públicas</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"El equipo de producción de <span
-                                    class="text-sky-500 font-bold">STUDIO 180</span> creó
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"El equipo de producción de <span
+                                    class="text-white font-bold">STUDIO 180</span> creó
                                 videos promocionales que capturaron perfectamente la esencia de nuestra marca. La
                                 calidad del contenido es excepcional y ha tenido una gran aceptación en nuestras
                                 plataformas."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Sofia González</p>
-                            <p class="text-sm text-gray-600">Coordinadora de Marketing</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Sofia González</p>
+                            <p class="text-sm text-sky-500">Coordinadora de Marketing</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"La gestión de nuestras campañas en Google Ads por parte
-                                de <span class="text-sky-500 font-bold">STUDIO 180</span> ha sido excelente. Hemos visto
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"La gestión de nuestras campañas en Google Ads por
+                                parte
+                                de <span class="text-white font-bold">STUDIO 180</span> ha sido excelente. Hemos visto
                                 un retorno de inversión
                                 significativo y hemos alcanzado a nuestro público objetivo de manera efectiva."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Ricardo Morales</p>
-                            <p class="text-sm text-gray-600">Director Financiero</p>
+                            <p class="text-sm font-bold text-sky-400 uppercase">Ricardo Morales</p>
+                            <p class="text-sm text-sky-500">Director Financiero</p>
                         </div>
                     </div>
                     <div class="swiper-slide">
-                        <div class="max-w p-8 bg-white rounded-lg md:shadow-md">
-                            <p class="text-gray-800 text-base">"La consultoría en estrategia de marketing proporcionada
-                                por <span class="text-sky-500 font-bold">STUDIO 180</span> ha sido invaluable. Nos
+                        <div class="max-w p-8 bg-blue-900/80 rounded-lg md:shadow-md">
+                            <p class="text-slate-200 font-light">"La consultoría en estrategia de marketing
+                                proporcionada
+                                por <span class="text-white font-bold">STUDIO 180</span> ha sido invaluable. Nos
                                 ayudaron a identificar oportunidades
                                 clave y a desarrollar un plan que ha impulsado nuestro crecimiento."</p>
                             <br>
-                            <p class="text-sm font-semibold text-gray-900">Lucia Herrera</p>
-                            <p class="text-sm text-gray-600">Directora Ejecutiva</p>
+                            <p class="text-md font-bold text-sky-400 uppercase">Lucia Herrera</p>
+                            <p class="text-sm text-sky-500">Directora Ejecutiva</p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-    </div>
+    </section>
 
-    <!-- testimonios section -->
+    <section id="contacto">
+        <div class="container mx-auto my-10">
+            <h4 class="text-2xl text-sky-400 font-black mb-6">CONTACTO<span class="text-slate-500">__</span></h4>
 
-    <!-- equipo section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10 wow animate__animated animate__fadeIn" id="contacto">
-        <div class="w-full bg-slate-950 2xl:rounded-lg">
-            <div class="md:p-10 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">CONTACTO<span class="text-slate-500">__</span>
-                </h2>
-            </div>
-            <div class="md:px-10 px-3 pb-10">
+            <div class="flex md:flex-row flex-col gap-8">
 
-                <div class="flex md:flex-row flex-col md:gap-14 gap-6 ">
+                <div class="md:w-2/5 wow animate__animated animate__fadeInLeft">
+                    <div class="grid gap-6 w-full">
 
-                    <div class="grid md:grid-cols-1 grid-cols-3 gap-6">
-
-                        <div
-                            class="w-full md:p-6 p-0 md:text-left text-center bg-gray-800 border border-gray-700 rounded-lg shadow py-2">
-                            <i class="fa-brands fa-whatsapp fa-2xl md:text-5xl text-4xl md:mb-2"></i>
-                            <a href="#">
-                                <h5
-                                    class="md:mb-2 mb-0 md:text-2xl text-md font-semibold tracking-tight text-gray-900 dark:text-white">
-                                    WHATSAPP</h5>
-                            </a>
-                            <p class="font-normal text-gray-500 dark:text-gray-400 md:block hidden">Puedes contacarnos
-                                vía Whtasapp
-                                para una atención mas personalizada</p>
-                            <div class="md:text-end text-center">
-                                <a href="https://wa.me/573239331730" target="_blank"
-                                    class="inline-flex font-light text-sky-400 md:py-2">
-                                    <i class="fa-solid fa-arrow-right md:text-3xl text-2xl"></i>
-                                </a>
+                        <a href="https://wa.me/573239331730">
+                            <div class="bg-sky-900/20 rounded-lg p-5 flex">
+                                <div class="flex justify-center items-center p-2">
+                                    <span class="iconify w-12 h-12 text-blue-600"
+                                        data-icon="logos:whatsapp-icon"></span>
+                                </div>
+                                <div class="ps-5">
+                                    <h6 class="text-xl text-blue-500 font-bold">WHATSAPP</h6>
+                                    <p class="text-slate-300">Puedes contacarnos
+                                        vía Whtasapp
+                                        para una atención mas personalizada</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div
-                            class="w-full md:p-6 p-0 md:text-left text-center bg-gray-800 border border-gray-700 rounded-lg shadow py-2">
-                            <i class="fa-regular fa-envelope fa-2xl md:text-5xl text-4xl md:mb-2"></i>
-                            <a href="#">
-                                <h5
-                                    class="md:mb-2 mb-0 md:text-2xl text-md font-semibold tracking-tight text-gray-900 dark:text-white">
-                                    EMAIL</h5>
-                            </a>
-                            <p class="font-normal text-gray-500 dark:text-gray-400 md:block hidden">A traves de nuestro
-                                correo electronico recibiremos sus propuestas</p>
-                            <div class="md:text-end text-center">
-                                <a href="mailto:studioweb180@gmail.com" target="_blank"
-                                    class="inline-flex font-light text-sky-400 md:py-2">
-                                    <i class="fa-solid fa-arrow-right md:text-3xl text-2xl"></i>
-                                </a>
+                        </a>
+                        <a href="mailto:studioweb180@gmail.com">
+                            <div class="bg-sky-900/20 rounded-lg p-5 flex">
+                                <div class="flex justify-center items-center p-2">
+                                    <span class="iconify w-12 h-12 text-blue-600" data-icon="logos:google-gmail"></span>
+                                </div>
+                                <div class="ps-5">
+                                    <h6 class="text-xl text-blue-500 font-bold">EMAIL</h6>
+                                    <p class="text-slate-300">A traves de nuestro correo electronico recibiremos sus
+                                        propuestas</p>
+                                </div>
                             </div>
-                        </div>
-
-                        <div
-                            class="w-full md:p-6 p-0 md:text-left text-center bg-gray-800 border border-gray-700 rounded-lg shadow py-2">
-                            <i class="fa-regular fa-location-dot fa-2xl md:text-5xl text-4xl md:mb-2"></i>
-                            <a href="#">
-                                <h5
-                                    class="md:mb-2 mb-0 md:text-2xl text-md font-semibold tracking-tight text-gray-900 dark:text-white">
-                                    PRESENCIAL</h5>
-                            </a>
-                            <p class="font-normal text-gray-500 dark:text-gray-400 md:block hidden">Puedes agendar una
-                                reunión presenciale en Cucuta - Norte de Santander</p>
-                            <div class="md:text-end text-center">
-                                <a href="https://www.google.com/maps/place/" target="_blank"
-                                    class="inline-flex font-light text-sky-400 md:py-2">
-                                    <i class="fa-solid fa-arrow-right md:text-3xl text-2xl"></i>
-                                </a>
+                        </a>
+                        <a href="https://maps.app.goo.gl/tjsLqdBLtWtbNGZk7">
+                            <div class="bg-sky-900/20 rounded-lg p-5 flex">
+                                <div class="flex justify-center items-center p-2">
+                                    <span class="iconify w-12 h-12 text-blue-600" data-icon="logos:google-maps"></span>
+                                </div>
+                                <div class="ps-5">
+                                    <h6 class="text-xl text-blue-500 font-bold">PRESENCIAL</h6>
+                                    <p class="text-slate-300">Puedes agendar una reunión presenciale en Cucuta - Norte
+                                        de Santander</p>
+                                </div>
                             </div>
-                        </div>
-
+                        </a>
 
                     </div>
+                </div>
 
-                    <div class="border border-gray-800 rounded-lg shadow-lg p-8 w-full">
+                <div class="md:w-3/5 wow animate__animated animate__fadeInRight">
+                    <div class="w-full">
+                        <div class="flex md:justify-start justify-center mb-4">
+                            <h2 class="text-xl md:text-2xl font-regular"><span class="text-blue-600">Envíanos un
+                                    mensaje</span></h2>
+                        </div>
 
-                        <h1 class="text-3xl font-light text-blue-400 mb-5">Envíanos Un Mensaje</h1>
+                        <form action="mailto:studioweb180@gmail.com" method="post" enctype="text/plain">
 
-                        <form action="mailto:studioweb180@gmail.com" method="post" enctype="text/plain" class="md:p-4">
-
-                            <div class="form-control w-full md:mb-4 mb-2">
-                                <div class="label">
-                                    <span class="label-text">¿Tu Nombre?</span>
+                            <div class="w-full">
+                                <div class="form-group flex gap-5">
+                                    <label class="form-control text-sm w-full">
+                                        <div class="label">
+                                            <span class="label-text">Nombre</span>
+                                        </div>
+                                        <input type="text" placeholder="Escribe aquí"
+                                            class="input input-bordered w-full bg-sky-900/20" name="nombre" />
+                                    </label>
+                                    <label class="form-control text-sm w-full">
+                                        <div class="label">
+                                            <span class="label-text">Correo</span>
+                                        </div>
+                                        <input type="text" placeholder="ejemplo@gmail.com"
+                                            class="input input-bordered w-full bg-sky-900/20" name="email" />
+                                    </label>
                                 </div>
-                                <input type="text" placeholder="Escribe aquí" id="name" name="name" required
-                                    class="input input-bordered w-full" />
+                                <label class="form-control text-sm w-full">
+                                    <div class="label">
+                                        <span class="label-text">Asunto</span>
+                                    </div>
+                                    <input type="text" placeholder="Solicitud"
+                                        class="input input-bordered w-full bg-sky-900/20" name="asunto" />
+                                </label>
+
                             </div>
 
-                            <div class="form-control w-full md:mb-4 mb-2">
-                                <div class="label">
-                                    <span class="label-text">¿Tu Correo?</span>
-                                </div>
-                                <input type="email" id="email" name="email" required placeholder="ejemplo@gmail.com"
-                                    class="input input-bordered w-full" />
+                            <div class="mt-2">
+                                <label class="form-control text-sm">
+                                    <div class="label">
+                                        <span class="label-text">Tu mensaje</span>
+                                    </div>
+                                    <textarea class="textarea textarea-bordered h-12 bg-sky-900/20"
+                                        placeholder="Estoy interesado en mas detalles" name="mensaje"></textarea>
+                                </label>
                             </div>
 
-                            <div class="form-control w-full md:mb-4 mb-2">
-                                <div class="label">
-                                    <span class="label-text">¿Tu Telefono?</span>
-                                </div>
-                                <input type="text" placeholder="+57 300 000 0000" id="telefono" name="telefono" required
-                                    class="input input-bordered w-full" />
-                            </div>
-
-                            <div class="form-control w-full md:mb-4 mb-2">
-                                <div class="label">
-                                    <span class="label-text">Tu Mensaje</span>
-                                </div>
-                                <textarea class="textarea textarea-bordered" placeholder="Deseo solicitar mi propuesta"
-                                    id="message" name="message" rows="4" required></textarea>
-                            </div>
-
-                            <div class="text-right">
-                                <button type="submit" class="btn bg-sky-400 md:w-1/2 w-full mt-3 text-slate-100">Enviar
-                                    mi mensaje</button>
+                            <div class="mt-6 md:flex justify-end">
+                                <button type="submit" class="btn btn-outline btn-info md:w-1/3 w-full">ENVIAR
+                                    CORREO <i class="iconify" data-icon="lucide:mail"></i></button>
                             </div>
 
                         </form>
                     </div>
-
                 </div>
-
             </div>
 
         </div>
-    </div>
-    <!-- equipo section -->
+    </section>
 
+    <section id="faqs">
+        <div class="container mx-auto my-10">
+            <h4 class="text-2xl text-sky-400 font-black mb-6">FAQ's<span class="text-slate-500">__</span></h4>
 
-    <!-- equipo section -->
-    <div class="2xl:px-10 2xl:py-0 2xl:pb-10 wow animate__animated animate__backInRight" id="us">
-        <div class="w-full bg-slate-950 2xl:rounded-lg">
-            <div class="md:p-10 p-6">
-                <h2 class="inline text-4xl text-sky-400 font-bold">EQUIPO<span class="text-slate-500">__</span>
-                </h2>
-            </div>
-            <div class="md:px-10 px-6 pb-10">
-                <div>
+            <div>
+                <div class="join join-vertical w-full bg-sky-900/10">
 
-                    <div class="mockup-browser border-slate-800 border">
-                        <div class="mockup-browser-toolbar">
-                            <div class="input border-slate-800 border italic">Studio180</div>
+                    <div
+                        class="collapse collapse-arrow join-item border-slate-500 border wow animate__animated animate__fadeInUp">
+                        <input type="radio" name="my-accordion-4" checked="checked" />
+                        <div class="collapse-title text-xl font-bold text-blue-500 font-bold">No encuentro un plan
+                            que se adapte a mi negocio
                         </div>
-                        <div class="border-slate-900 flex justify-center border-t px-4 py-4 gap-5 flex-wrap">
-
-                            <div
-                                class="card md:flex-col bg-slate-800 shadow-xl md:w-60 hover:shadow-cyan-500/50 w-full flex-row py-4">
-                                <div class="md:p-14 p-5 md:w-full w-2/6">
-                                    <img src="./assets/img/team/david.jpg" alt="Shoes" class="rounded-full w-full" />
-                                </div>
-                                <div
-                                    class="flex flex-col justify-center md:text-center text-slate-400 md:px-2 md:pb-12 ">
-                                    <h2 class="md:text-center md:text-2xl font-bold">David Silva</h2>
-                                    <div class="divider m-0 my-2"></div>
-                                    <p>Ing. Industrial</p>
-                                    <p>Creador De Contenido</p>
-                                </div>
-                            </div>
-
-
-                            <div
-                                class="card md:flex-col bg-slate-800 shadow-xl md:w-60 hover:shadow-cyan-500/50 w-full flex-row py-4">
-                                <div class="md:p-14 p-5 md:w-full w-2/6">
-                                    <img src="./assets/img/team/nick.jpg" alt="Shoes" class="rounded-full w-full" />
-                                </div>
-                                <div
-                                    class="flex flex-col justify-center md:text-center text-slate-400 md:px-2 md:pb-12 ">
-                                    <h2 class="md:text-center md:text-2xl font-bold">Nick Barrientos</h2>
-                                    <div class="divider m-0 my-2"></div>
-                                    <p>Tecnico En Sistemas</p>
-                                    <p>Programador</p>
-                                </div>
-                            </div>
-
+                        <div class="collapse-content">
+                            <p class="text-gray-100 font-light">Entendemos que no todos los negocios tienen las mismas
+                                necesidades ni buscan lo mismo, por lo tanto, si no te sientes identificado con un
+                                plan puedes escribirnos, y te cotizamos un plan que se adapte a lo que buscas.</p>
                         </div>
                     </div>
 
+                    <div class="collapse collapse-arrow join-item border-slate-500 border wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.1s">
+                        <input type="radio" name="my-accordion-4" />
+                        <div class="collapse-title text-xl font-bold text-blue-500 font-bold">Tiempo de entrega
+                            del proyecto
+                        </div>
+                        <div class="collapse-content">
+                            <p class="text-gray-100 font-light">Para estimarte un tiempo de entrega, debemos conocer que
+                                especificaciones requieres en tu sitio web para aproximarte una fecha de entrega.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow join-item border-slate-500 border wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.2s">
+                        <input type="radio" name="my-accordion-4" />
+                        <div class="collapse-title text-xl font-bold text-blue-500 font-bold">Ofrecemos
+                            financiación en nuestros servicios
+                        </div>
+                        <div class="collapse-content">
+                            <p class="text-gray-100 font-light">Puedes llegar a un acuerdo de financiación con nosotros,
+                                en el
+                                cual te sientas cómodo y puedas contratar nuestros servicios de marketing digital.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="collapse collapse-arrow join-item border-slate-500 border wow animate__animated animate__fadeInUp"
+                        data-wow-delay="0.3s">
+                        <input type="radio" name="my-accordion-4" />
+                        <div class="collapse-title text-xl font-bold text-blue-500 font-bold">Beneficios de
+                            implementar un sitio web a mi negocio
+                        </div>
+                        <div class="collapse-content">
+                            <p class="text-gray-100 font-light">De forma general, un sitio web te permite lo siguiente:
+                                <br>
+                                <br> • Optimizar tiempos y procesos en tu negocio
+                                <br> • Automatizar ventas
+                                <br> • Medir indicadores como demanda, trafico online, servicio al cliente etc
+                                <br> • Estructurar tus productos y servicios en un solo lugar
+                                <br> • Darle mas profesionalismo a tu negocio.
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </div>
-    </div>
-    <!-- equipo section -->
+    </section>
 
-    <div class="divider bg-slate-200 m-0 2xl:hidden" style="height: 0.25rem;"></div>
+    <section id="nosotros">
+        <div class="container mx-auto my-10">
+            <h4 class="text-2xl text-sky-400 font-black mb-6">NOSOTROS<span class="text-slate-500">__</span></h4>
 
-    <!-- footer section -->
-    <footer class="footer bg-slate-950 text-slate-300 p-10">
-        <aside>
-            <img src="./assets/img/bannerMobile.png" width="12%" alt="">
-            <p>
-                Studio Web 180.
-                <br />
-                Copyright © 2024 - All right reserved
-            </p>
-        </aside>
-        <nav>
-            <h6 class="footer-title">Servicios</h6>
-            <a class="link link-hover" href="./planesMark.html">Marketing</a>
-            <a class="link link-hover" href="./planesDev.html">Desarrollo</a>
-            <a class="link link-hover" href="./planesDis.html">Diseño</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Empresa</h6>
-            <a class="link link-hover" href="#planes">Planes</a>
-            <a class="link link-hover" href="#herramientas">Herramientas</a>
-            <a class="link link-hover" href="#objetivo">Objetivo</a>
-            <a class="link link-hover" href="#faqs">FAQ's</a>
-            <a class="link link-hover" href="#testimonios">Testimonios</a>
-            <a class="link link-hover" href="#contacto">Contacto</a>
-            <a class="link link-hover" href="#us">Nosotros</a>
-        </nav>
-        <nav>
-            <h6 class="footer-title">Social</h6>
-            <div class="grid grid-flow-col gap-4">
-                <a href="https://www.instagram.com/studioweb180/" target="_blank">
-                    <img src="./assets/img/icons/ig.png" width="24" height="24" alt="Instagram">
-                </a>
-                <a href="https://www.tiktok.com/@studioweb180?_t=8o4eyrshGI1&_r=1" target="_blank">
-                    <img src="./assets/img/icons/tk.png" width="24" height="24" alt="Instagram">
-                </a>
-                <a href="https://web.facebook.com/profile.php?id=61563049161885&is_tour_completed" target="_blank">
-                    <img src="./assets/img/icons/fb.png" width="24" height="24" alt="Instagram">
-                </a>
+
+
+            <div>
+                <div class="mockup-browser border-slate-800 border">
+                    <div class="mockup-browser-toolbar">
+                        <div class="input border-slate-800 border italic">Studio180</div>
+                    </div>
+                    <div class="border-slate-900 md:p-10 p-4 ">
+
+                        <div class="grid 2xl:grid-cols-3 md:grid-cols-2 grid-cols-1 md:gap-10 gap-4">
+
+                            <div>
+                                <div class="bg-sky-900/20 rounded-xl flex p-5 wow animate__animated animate__fadeIn"
+                                    data-wow-delay="0.1s">
+                                    <div class="flex justify-center items-center w-1/3">
+                                        <img src="./assets/img/team/david.jpg" class="w-64 h-auto rounded-lg" alt="">
+                                    </div>
+                                    <div class="ps-5 w-full">
+                                        <h2 class="md:text-2xl font-bold">David Silva</h2>
+                                        <div class="divider m-0 my-1"></div>
+                                        <p>Ing. Industrial</p>
+                                        <p>Creador De Contenido</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div class="bg-sky-900/20 rounded-xl flex p-5 wow animate__animated animate__fadeIn"
+                                    data-wow-delay="0.3s">
+                                    <div class="flex justify-center items-center w-1/3">
+                                        <img src="./assets/img/team/nick.jpg" class="w-64 h-auto rounded-lg" alt="">
+                                    </div>
+                                    <div class="ps-5 w-full">
+                                        <h2 class="md:text-2xl font-bold">Nick Barrientos</h2>
+                                        <div class="divider m-0 my-1"></div>
+                                        <p>Tec. En Sistemas</p>
+                                        <p>Programador</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </nav>
+        </div>
+    </section>
+
+    <div class="divider bg-sky-800/50 m-0 2xl:hidden h-0.5"></div>
+
+    <!-- FOOTER -->
+    <footer class="footer bg-slate-950/50 items-center p-4">
+        <aside class="grid-flow-col items-center md:place-self-center md:justify-self-start justify-self-center">
+            <img src="./assets/img/bannerMobile.png" alt="logo" width="28" height="28">
+            <p class="text-slate-400 ms-2">STUDIO 180 - Copyright © 2025 - All right reserved</p>
+        </aside>
     </footer>
-    <!-- footer section -->
+    <!--  -->
 
 
+    <script src="./assets/js/wow.min.js"></script>
+    <script>new WOW().init();</script>
     <script src="./assets/js/swiper-bundle.min.js"></script>
 
     <script>
